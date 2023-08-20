@@ -19,3 +19,26 @@ body {
   font-family: "Noto Serif", serif;
   color: var(--vms-body-color) !important;
 }
+
+/* Bootstrap */
+.form-check-input {
+  border-radius: 0 !important;
+}
+
+.form-check-input[type=radio] {
+  border-radius: 50% !important;
+}
+
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.25rem var(--vms-primary-light);
+  border-color: var(--vms-primary);
+}
+
+.form-check-input:checked {
+  background-color: var(--vms-primary);
+  border-color: var(--vms-primary);
+}
+
+.form-check-label {
+  font-size: 14px;
+}

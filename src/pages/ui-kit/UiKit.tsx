@@ -1,6 +1,14 @@
 import React from "react";
-import { AppButton, AppButtonIcon, AppInput, AppInputSearch, IconWrapper } from "../../components/common";
+import {
+  AppButton,
+  AppButtonIcon,
+  AppInput,
+  AppInputSearch,
+  AppSelect,
+  IconWrapper,
+} from "../../components/common";
 import { IconChecked, IconSpinner } from "../../components/icons";
+import { Form } from "react-bootstrap";
 
 export const UiKit = () => {
   return (
@@ -23,11 +31,7 @@ export const UiKit = () => {
           Button Icon
         </AppButtonIcon>
         <h3>Button Icon Square</h3>
-        <AppButtonIcon
-          shape="square"
-          variant="light"
-          icon={IconSpinner}
-        />
+        <AppButtonIcon shape="square" variant="light" icon={IconSpinner} />
         <AppButtonIcon direction="vertical" variant="light" icon={IconSpinner}>
           Button Icon
         </AppButtonIcon>
@@ -46,14 +50,45 @@ export const UiKit = () => {
       </section>
       <hr />
       <section>
+        <h3>Select</h3>
+        <AppSelect
+          options={[
+            { value: 0, label: "Otp 1" },
+            { value: 1, label: "Otp 2" },
+          ]}
+          blurInputOnSelect
+        />
+        <h3>Select Error</h3>
+        <AppSelect
+          options={[
+            { value: 0, label: "Otp 1" },
+            { value: 1, label: "Otp 2" },
+          ]}
+          blurInputOnSelect
+          error
+          errorMessage="Select error"
+        />
         <h3>Input</h3>
         <AppInput placeholder="App Input" />
         <h3>Input Error</h3>
         <AppInput error />
         <h3>Input Error with message</h3>
-        <AppInput error errorMessage="Input error"/>
+        <AppInput error errorMessage="Input error" />
         <h3>Input Search</h3>
         <AppInputSearch onSearch={() => alert("Searching...")} />
+        <hr />
+        <h3>Checked</h3>
+        <Form.Check label="Check" checked />
+        <Form.Check label="Check" disabled />
+        <Form.Check label="Check" checked disabled />
+        <Form.Check label="Check" />
+        <hr />
+        <h3>Radio</h3>
+        <Form.Check type="radio" label="Radio" />
+        <Form.Check type="radio" label="Radio" checked />
+        <Form.Check type="radio" label="Radio" disabled />
+        <Form.Check type="radio" label="Radio" checked disabled />
+        
       </section>
     </div>
   );

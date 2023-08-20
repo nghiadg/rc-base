@@ -1,0 +1,51 @@
+.select {
+  font-size: 14px;
+  height: 31px;
+  min-height: 31px !important;
+  box-shadow: none !important;
+  border-color: var(--vms-secondary-hover) !important;
+}
+
+.focus {
+  border-color: var(--vms-primary) !important;
+}
+
+.valueContainer {
+  padding: 0 6px !important;
+}
+
+.menu {
+  box-shadow: none !important;
+  border: 1px solid var(--vms-secondary-hover) !important;
+}
+
+.option {
+    height: 31px !important;
+    font-size: 14px !important;
+    display: flex !important;
+    align-items: center;
+    background-color: transparent;
+}
+
+.hovered:hover {
+    background-color: var(--vms-primary-light) !important;
+    color: var(--vms-text-color) !important;
+}
+
+.selected {
+    background-color: var(--vms-primary) !important;
+    color: #fff !important;
+}
+
+.focused {
+    background-color: transparent !important;
+}
+
+.errorMsg {
+    color: var(--vms-red);
+    font-size: 14px;
+}
+
+.error {
+    border-color: var(--vms-red) !important;
+}

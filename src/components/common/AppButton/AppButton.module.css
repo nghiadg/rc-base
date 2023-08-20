@@ -52,15 +52,18 @@
 .light {
     background-color: transparent;
     border-color: var(--vms-secondary-hover);
+    color: var(--vms-text-color);
 }
 
 .light:hover {
     background-color: var(--vms-primary-light);
     border-color: var(--vms-primary-light);
+    color: var(--vms-text-color);
 }
 
 .light:active:focus {
     background-color: var(--vms-primary-light);
+    color: var(--vms-text-color);
 }
 
 /* Disable */
