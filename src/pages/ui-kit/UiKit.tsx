@@ -1,5 +1,5 @@
 import React from "react";
-import { AppButton, AppButtonIcon, IconWrapper } from "../../components/common";
+import { AppButton, AppButtonIcon, AppInput, AppInputSearch, IconWrapper } from "../../components/common";
 import { IconChecked, IconSpinner } from "../../components/icons";
 
 export const UiKit = () => {
@@ -43,6 +43,17 @@ export const UiKit = () => {
         <IconWrapper size="xs" as={IconSpinner} />
         <IconWrapper size="sm" as={IconSpinner} />
         <IconWrapper size="lg" as={IconSpinner} />
+      </section>
+      <hr />
+      <section>
+        <h3>Input</h3>
+        <AppInput placeholder="App Input" />
+        <h3>Input Error</h3>
+        <AppInput error />
+        <h3>Input Error with message</h3>
+        <AppInput error errorMessage="Input error"/>
+        <h3>Input Search</h3>
+        <AppInputSearch onSearch={() => alert("Searching...")} />
       </section>
     </div>
   );

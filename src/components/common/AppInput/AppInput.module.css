@@ -1,0 +1,28 @@
+.input {
+    outline: none;
+    box-shadow: none;
+}
+
+.input:hover {
+    outline: none;
+    box-shadow: none;
+}
+
+.input:global(.form-control):focus {
+    box-shadow: none;
+    border-color: var(--vms-primary);
+    color: var(--vms-text-color);
+}
+
+.error {
+    border-color: var(--vms-red);
+}
+
+.error:global(.form-control):focus {
+    border-color: var(--vms-red);
+}
+
+.errorMsg {
+    color: var(--vms-red);
+    font-size: 14px;
+}
