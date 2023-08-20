@@ -12,6 +12,7 @@ export const AppButtonIcon = ({
   direction = "horizontal",
   className,
   iconOnly = false,
+  variant,
   onMouseEnter,
   onMouseLeave,
   ...props
@@ -42,6 +43,7 @@ export const AppButtonIcon = ({
       })}
       onMouseEnter={_onMouseEnter}
       onMouseLeave={_onMouseLeave}
+      variant={iconOnly ? "transparent" : variant}
       {...props}
     >
       <div

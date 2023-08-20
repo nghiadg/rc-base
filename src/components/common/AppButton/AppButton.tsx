@@ -15,9 +15,8 @@ export const AppButton = ({
     <Button
       className={clsx("rounded-0", styles.btn, className, {
         [styles.transparent]: variant === "transparent",
-        [styles.secondary]: variant === "secondary",
         [styles.light]: variant === "light",
-        [styles.xs]: size === 'xs'
+        [styles.xs]: size === "xs",
       })}
       size={size === "xs" ? undefined : size}
       variant={variant}

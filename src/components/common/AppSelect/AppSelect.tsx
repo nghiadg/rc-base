@@ -1,13 +1,12 @@
-import clsx from "clsx";
 import { useCallback } from "react";
 import Select, {
-    ControlProps,
-    DropdownIndicatorProps,
-    MenuProps,
-    NoticeProps,
-    OptionProps,
-    ValueContainerProps,
-    components,
+  CSSObjectWithLabel,
+  ControlProps,
+  MenuProps,
+  NoticeProps,
+  OptionProps,
+  ValueContainerProps,
+  components,
 } from "react-select";
 import { IconDown } from "../../icons";
 import { IconWrapper } from "../IconWrapper";
@@ -21,46 +20,69 @@ export const AppSelect = ({
   errorMessage,
   ...props
 }: IAppSelectProps) => {
-  const controlClassName = useCallback(
-    (state: ControlProps) =>
-      clsx("rounded-0", styles.select, {
-        [styles.focus]: state.isFocused,
-        [styles.error]: error,
-      }),
+  const controlStyles = useCallback(
+    (baseStyles: CSSObjectWithLabel, state: ControlProps) => ({
+      ...baseStyles,
+      minHeight: 31,
+      borderRadius: 0,
+      boxShadow: "none",
+      ...(state.isFocused && { borderColor: "var(--vms-primary)" }),
+      ...(error && { borderColor: "var(--vms-red)" }),
+      "&:hover": {
+        ...(!error && { borderColor: "var(--vms-primary)" }),
+      },
+    }),
     [error]
   );
-  const indicatorsContainerClassName = useCallback(
-    (state: DropdownIndicatorProps) => clsx("p-0"),
-    []
-  );
-  const valueContainerClassName = useCallback(
-    (state: ValueContainerProps) => clsx(styles.valueContainer),
-    []
-  );
-  const menuClassName = useCallback(
-    (state: MenuProps) => clsx("rounded-0 mt-0", styles.menu),
+
+  const valueContainerStyles = useCallback(
+    (baseStyles: CSSObjectWithLabel, state: ValueContainerProps) => ({
+      ...baseStyles,
+      margin: 0,
+      padding: "0 6px",
+      fontSize: 14,
+    }),
     []
   );
 
-  const optionClassName = useCallback(
-    (state: OptionProps) =>
-      clsx(styles.option, {
-        [styles.selected]: state.isSelected,
-        [styles.focused]: !state.isSelected && state.isFocused,
-        [styles.hovered]: !state.isSelected,
-      }),
+  const menuStyles = useCallback(
+    (baseStyles: CSSObjectWithLabel, state: MenuProps) => ({
+      ...baseStyles,
+      borderRadius: 0,
+      margin: 0,
+      boxShadow: "none",
+      border: "1px solid var(--vms-secondary-hover)",
+    }),
+    []
+  );
+
+  const optionStyles = useCallback(
+    (baseStyles: CSSObjectWithLabel, state: OptionProps) => ({
+      ...baseStyles,
+      height: 31,
+      fontSize: 14,
+      display: "flex",
+      alignItems: "center",
+      ...(state.isSelected && { backgroundColor: "var(--vms-primary)" }),
+      ...(state.isFocused &&
+        !state.isSelected && { backgroundColor: "var(--vms-primary-light)" }),
+      "&:active": {
+        backgroundColor: state.isSelected
+          ? "var(--vms-primary)"
+          : "var(--vms-primary-light)",
+      },
+    }),
     []
   );
 
   return (
     <>
       <Select
-        classNames={{
-          control: controlClassName,
-          valueContainer: valueContainerClassName,
-          dropdownIndicator: indicatorsContainerClassName,
-          menu: menuClassName,
-          option: optionClassName,
+        styles={{
+          control: controlStyles,
+          valueContainer: valueContainerStyles,
+          menu: menuStyles,
+          option: optionStyles,
         }}
         components={{
           DropdownIndicator: DropdownIndicator,
