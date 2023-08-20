@@ -1,0 +1,23 @@
+.square {
+    aspect-ratio: 1/1;
+}
+
+.vertical {
+    flex-direction: column;
+}
+
+.iconOnly {
+    padding: 0;
+    width: fit-content;
+    height: fit-content;
+    background-color: transparent;
+    border-color: transparent;
+}
+.iconOnly:hover {
+    background-color: transparent;
+    border-color: transparent;
+}
+.iconOnly:active:focus {
+    background-color: transparent;
+    border-color: transparent;
+}

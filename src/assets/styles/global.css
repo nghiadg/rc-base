@@ -1,0 +1,20 @@
+
+/* Font */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&display=swap");
+
+:root {
+  /* Define variables */
+  --vms-body-color: #605f5f;
+  --vms-primary: #84c0ca;
+  --vms-primary-hover: #579fad;
+  --vms-secondary: #f0f0f0;
+  --vms-secondary-hover: #dfdfdf;
+  --vms-primary-light: #cee6ea;
+  --vms-text-color: #605f5f;
+  --vms-disabled: #e0e0e0;
+}
+
+body {
+  font-family: "Noto Serif", serif;
+  color: var(--vms-body-color) !important;
+}

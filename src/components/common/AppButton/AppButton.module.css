@@ -1,0 +1,77 @@
+
+.btn {
+    background-color: var(--vms-primary);
+    border-color: var(--vms-primary);
+}   
+
+.btn:hover {
+    background-color: var(--vms-primary-hover);
+    border-color: var(--vms-primary-hover);
+}
+
+.btn:active:focus {
+    background-color: var(--vms-primary-hover);
+    border-color: var(--vms-primary);
+}
+
+/* transparent */
+.transparent {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--vms-text-color);
+}
+
+.transparent:hover {
+    background-color: var(--vms-primary-light);
+    border-color: var(--vms-primary-light);
+}
+
+.transparent:active:focus {
+    background-color: var(--vms-primary-light);
+}
+
+/* Secondary */
+.secondary {
+    background-color: var(--vms-secondary);
+    border-color: var(--vms-secondary-hover);
+    color: var(--vms-text-color);
+}
+
+.secondary:hover {
+    background-color: var(--vms-secondary-hover);
+    border-color: var(--vms-secondary-hover);
+    color: var(--vms-text-color);
+}
+
+.secondary:active:focus {
+    background-color: var(--vms-secondary-hover);
+    color: var(--vms-text-color);
+}
+
+/* Light */
+.light {
+    background-color: transparent;
+    border-color: var(--vms-secondary-hover);
+}
+
+.light:hover {
+    background-color: var(--vms-primary-light);
+    border-color: var(--vms-primary-light);
+}
+
+.light:active:focus {
+    background-color: var(--vms-primary-light);
+}
+
+/* Disable */
+.btn:disabled {
+    background-color: var(--vms-disabled);
+    border-color: var(--vms-secondary-hover);
+    color: var(--vms-text-color);
+}
+
+/* Size Xs */
+.xs {
+    padding: 2px 4px;
+    font-size: 14px;
+}
