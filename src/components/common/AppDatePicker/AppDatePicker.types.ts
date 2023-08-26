@@ -10,7 +10,6 @@ export interface IAppDatePickerProps extends IAppInputProps {
   value?: number;
   formatter?: string;
   hasCalendar?: boolean;
-  inputRef?: React.MutableRefObject<HTMLInputElement | null>;
   onChangeDate?: (value?: number) => void;
   minMaxYear?: [number | null, number | null];
   minMaxMonth?: [number | null, number | null];

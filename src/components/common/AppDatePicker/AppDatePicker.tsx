@@ -1,7 +1,7 @@
 import { ControlledMenu } from "@szhsin/react-menu";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
-import React, { useCallback, useRef, useMemo } from "react";
+import React, { useCallback, useRef, useMemo, forwardRef, useImperativeHandle } from "react";
 import RCalendar from "react-calendar";
 import { Calendar, KEY_CODE } from "../../../constants";
 import { useOnClickOutside, useToggle } from "../../../hooks";
@@ -15,11 +15,10 @@ import { Value } from "react-calendar/dist/cjs/shared/types";
 
 dayjs.extend(customParseFormat);
 
-export const AppDatePicker = ({
+export const AppDatePicker = forwardRef<HTMLInputElement,IAppDatePickerProps >(({
   format = "DD/MM/YYYY",
   formatter = "DDMMYYYY",
   hasCalendar = true,
-  inputRef,
   value,
   minMaxYear = [null, null],
   minMaxMonth = [null, null],
@@ -29,10 +28,10 @@ export const AppDatePicker = ({
   onBlur,
   calendarProps,
   ...props
-}: IAppDatePickerProps) => {
+}, ref ) => {
   const anchorRef = useRef<HTMLDivElement>(null);
   const [isOpenCalendar, toggleOpenCalendar] = useToggle(false);
-  const _inputRef = useRef<HTMLInputElement | null>(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const _calendarRef = useRef<HTMLDivElement | null>(null);
 
   const _value = useMemo(() => {
@@ -88,9 +87,9 @@ export const AppDatePicker = ({
 
   const _onChangeDate = useCallback(
     (value: string) => {
-      if (!_inputRef.current) return;
+      if (!inputRef.current) return;
       const dateInstance = dayjs(value, formatter, true);
-      const anotherDateInstance = dayjs(value, format, true);
+      const formattedInstance = dayjs(value, format, true);
       if (
         dateInstance.isValid() &&
         isValidYear(dateInstance.year()) &&
@@ -98,14 +97,19 @@ export const AppDatePicker = ({
         isValidDate(dateInstance.date())
       ) {
         const dateValue = dayjs(value, formatter, true).format(format);
-        _inputRef.current.value = dateValue;
+        inputRef.current.value = dateValue;
         onChangeDate?.(Number(value));
-      } else if (anotherDateInstance.isValid()) {
+      } else if (
+        formattedInstance.isValid() &&
+        isValidYear(formattedInstance.year()) &&
+        isValidMonth(formattedInstance.month()) &&
+        isValidDate(formattedInstance.date())
+      ) {
         const dateValue = dayjs(value, format, true).format(format);
-        _inputRef.current.value = dateValue;
-        onChangeDate?.(Number(anotherDateInstance.format(formatter)));
+        inputRef.current.value = dateValue;
+        onChangeDate?.(Number(formattedInstance.format(formatter)));
       } else {
-        _inputRef.current.value = "";
+        inputRef.current.value = "";
         onChangeDate?.();
       }
     },
@@ -114,8 +118,8 @@ export const AppDatePicker = ({
 
   const _onKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLInputElement>) => {
-      if (e.key === KEY_CODE.Enter && _inputRef.current) {
-        _onChangeDate(_inputRef.current.value);
+      if (e.key === KEY_CODE.Enter && inputRef.current) {
+        _onChangeDate(inputRef.current.value);
       }
       onKeyDown?.(e);
     },
@@ -124,7 +128,7 @@ export const AppDatePicker = ({
 
   const _onBlur = useCallback(
     (e: React.FocusEvent<HTMLInputElement>) => {
-      _inputRef.current && _onChangeDate(_inputRef.current?.value);
+      inputRef.current && _onChangeDate(inputRef.current?.value);
       onBlur?.(e);
     },
     [_onChangeDate, onBlur]
@@ -138,27 +142,19 @@ export const AppDatePicker = ({
     [_onChangeDate, formatter, toggleOpenCalendar]
   );
 
-  const setRef = useCallback(
-    (ref: HTMLInputElement | null) => {
-      _inputRef.current = ref;
-      if (inputRef) {
-        inputRef.current = ref;
-      }
-    },
-    [inputRef]
-  );
-
   useOnClickOutside(_calendarRef, () => {
     if (isOpenCalendar) {
       toggleOpenCalendar();
     }
   });
 
+  useImperativeHandle(ref, () => Object.assign(inputRef))
+
   return (
     <div ref={anchorRef}>
       <div className="position-relative">
         <AppInput
-          ref={setRef}
+          ref={inputRef}
           value={_value}
           onKeyDown={_onKeyDown}
           onBlur={_onBlur}
@@ -194,4 +190,4 @@ export const AppDatePicker = ({
       ) : null}
     </div>
   );
-};
+});

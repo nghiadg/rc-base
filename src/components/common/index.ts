@@ -6,3 +6,4 @@ export * from "./AppInputSearch"
 export * from "./AppSelect"
 export * from "./AppDatePicker"
 export * from "./AppCalendar"
+export * from './AppInputTime'

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { Form } from "react-bootstrap";
 import {
   AppButton,
   AppButtonIcon,
@@ -6,11 +6,11 @@ import {
   AppDatePicker,
   AppInput,
   AppInputSearch,
+  AppInputTime,
   AppSelect,
   IconWrapper,
 } from "../../components/common";
 import { IconChecked, IconSpinner } from "../../components/icons";
-import { Form } from "react-bootstrap";
 
 export const UiKit = () => {
   return (
@@ -22,11 +22,10 @@ export const UiKit = () => {
         <h3>App DatePicker</h3>
         <AppDatePicker minMaxYear={[null, 2024]} />
         <h3>App DatePicker hasCalendar false</h3>
-        <AppDatePicker
-          minMaxYear={[null, 2024]}
-          hasCalendar={false}
-        />
-
+        <AppDatePicker minMaxYear={[null, 2024]} hasCalendar={false} />
+        <hr />
+        <h3>App Input Time</h3>
+        <AppInputTime />
         <hr />
         <h3>Button</h3>
         <AppButton>Button Default</AppButton>
