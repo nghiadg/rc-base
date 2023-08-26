@@ -26,10 +26,10 @@ export const AppSelect = ({
       minHeight: 31,
       borderRadius: 0,
       boxShadow: "none",
-      ...(state.isFocused && { borderColor: "var(--vms-primary)" }),
-      ...(error && { borderColor: "var(--vms-red)" }),
+      ...(state.isFocused && { borderColor: "var(--primary)" }),
+      ...(error && { borderColor: "var(--red)" }),
       "&:hover": {
-        ...(!error && { borderColor: "var(--vms-primary)" }),
+        ...(!error && { borderColor: "var(--primary)" }),
       },
     }),
     [error]
@@ -50,8 +50,8 @@ export const AppSelect = ({
       ...baseStyles,
       borderRadius: 0,
       margin: 0,
-      boxShadow: "none",
-      border: "1px solid var(--vms-secondary-hover)",
+      boxShadow: "rgba(0, 0, 0, 0.16) 0px 1px 4px;",
+      border: "1px solid var(--secondary-hover)",
     }),
     []
   );
@@ -63,13 +63,13 @@ export const AppSelect = ({
       fontSize: 14,
       display: "flex",
       alignItems: "center",
-      ...(state.isSelected && { backgroundColor: "var(--vms-primary)" }),
+      ...(state.isSelected && { backgroundColor: "var(--primary)" }),
       ...(state.isFocused &&
-        !state.isSelected && { backgroundColor: "var(--vms-primary-light)" }),
+        !state.isSelected && { backgroundColor: "var(--primary-light)" }),
       "&:active": {
         backgroundColor: state.isSelected
-          ? "var(--vms-primary)"
-          : "var(--vms-primary-light)",
+          ? "var(--primary)"
+          : "var(--primary-light)",
       },
     }),
     []

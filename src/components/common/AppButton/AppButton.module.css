@@ -2,23 +2,23 @@
 .transparent {
   background-color: transparent;
   border-color: transparent;
-  color: var(--vms-text-color);
+  color: var(--text-color);
 }
 
 .transparent:hover {
-  background-color: var(--vms-primary-light);
-  border-color: var(--vms-primary-light);
+  background-color: var(--primary-light);
+  border-color: var(--primary-light);
 }
 
 .transparent:active:focus {
-  background-color: var(--vms-primary-light);
+  background-color: var(--primary-light);
 }
 
 /* Disable */
 .btn:disabled {
-  background-color: var(--vms-disabled);
-  border-color: var(--vms-secondary-hover);
-  color: var(--vms-text-color);
+  background-color: var(--disabled);
+  border-color: var(--secondary-hover);
+  color: var(--text-color);
 }
 
 /* Size Xs */

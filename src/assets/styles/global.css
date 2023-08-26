@@ -1,22 +1,37 @@
-
-/* Font */
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&display=swap");
-
 :root {
   /* Define variables */
-  --vms-body-color: #605f5f;
-  --vms-primary: #84c0ca;
-  --vms-primary-hover: #579fad;
-  --vms-secondary: #f0f0f0;
-  --vms-secondary-hover: #dfdfdf;
-  --vms-primary-light: #cee6ea;
-  --vms-text-color: #605f5f;
-  --vms-disabled: #e0e0e0;
-  --vms-red: #e60000;
+  --body-color: #605f5f;
+  --primary: #84c0ca;
+  --primary-hover: #579fad;
+  --primary-light: #cee6ea;
+  --primary-lighter: #e6f2f4;
+  --secondary: #f0f0f0;
+  --secondary-hover: #dfdfdf;
+  --secondary-darker: #b4b4b4;
+  --text-color: #605f5f;
+  --disabled: #e0e0e0;
+  --red: #e60000;
+  --border-color: #c8c8c8;
 }
 
+/* Reset CSS */
+@import url("./_reset.css");
+/* Font */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&display=swap");
+/* Bootstrap */
+@import url("./_bootstrap.css");
+/* React calendar */
+@import url("./_calendar.css");
+
+/* ul {
+  padding: 0;
+} */
 body {
   font-family: "Noto Serif", serif;
-  color: var(--vms-body-color) !important;
+  color: var(--body-color) !important;
+  font-size: 14px;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}

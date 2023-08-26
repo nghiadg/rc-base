@@ -10,19 +10,19 @@
 
 .input:global(.form-control):focus {
     box-shadow: none;
-    border-color: var(--vms-primary);
-    color: var(--vms-text-color);
+    border-color: var(--primary);
+    color: var(--text-color);
 }
 
 .error {
-    border-color: var(--vms-red);
+    border-color: var(--red);
 }
 
 .error:global(.form-control):focus {
-    border-color: var(--vms-red);
+    border-color: var(--red);
 }
 
 .errorMsg {
-    color: var(--vms-red);
+    color: var(--red);
     font-size: 14px;
 }

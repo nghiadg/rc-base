@@ -1,5 +1,3 @@
-import "./assets/styles/_reset.css"
-import "./assets/styles/_bootstrap.css"
 import "./assets/styles/global.css";
 import React from "react";
 import ReactDOM from "react-dom/client";

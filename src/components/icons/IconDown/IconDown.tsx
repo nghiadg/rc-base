@@ -12,8 +12,8 @@ export const IconDown = ({ width = 24, height = 24, stroke = '#605f5f', size }: 
       <path
         fill="none"
         stroke={stroke}
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         d="m14.5 8.5l-4 4l-4-4"
       />
     </svg>

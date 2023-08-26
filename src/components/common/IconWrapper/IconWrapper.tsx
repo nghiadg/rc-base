@@ -3,13 +3,13 @@ import { IIconWrapperProps } from './IconWrapper.types'
 import styles from "./IconWrapper.module.css"
 import clsx from 'clsx'
 
-export const IconWrapper = ({as: Svg, size = 'sm', iconSize,...props}: IIconWrapperProps) => {
+export const IconWrapper = ({as: Svg, size = 'sm', iconSize, className,...props}: IIconWrapperProps) => {
   return (
-    <span className={clsx(styles.wrapper, {
+    <span className={clsx(styles.wrapper, className, {
         [styles.xs]: size === 'xs',
         [styles.sm]: size === 'sm',
         [styles.lg]: size === 'lg'
-    })}>
+    })} {...props}>
         <Svg size={iconSize} {...props}/>
     </span>
   )

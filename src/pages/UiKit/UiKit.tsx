@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import {
   AppButton,
   AppButtonIcon,
+  AppCalendar,
+  AppDatePicker,
   AppInput,
   AppInputSearch,
   AppSelect,
@@ -15,6 +17,17 @@ export const UiKit = () => {
     <div className="p-3">
       <h1>UI kit</h1>
       <section>
+        <h3>App Calendar</h3>
+        <AppCalendar />
+        <h3>App DatePicker</h3>
+        <AppDatePicker minMaxYear={[null, 2024]} />
+        <h3>App DatePicker hasCalendar false</h3>
+        <AppDatePicker
+          minMaxYear={[null, 2024]}
+          hasCalendar={false}
+        />
+
+        <hr />
         <h3>Button</h3>
         <AppButton>Button Default</AppButton>
         <AppButton variant="transparent">Button transparent</AppButton>
@@ -88,7 +101,7 @@ export const UiKit = () => {
         <Form.Check type="radio" label="Radio" checked />
         <Form.Check type="radio" label="Radio" disabled />
         <Form.Check type="radio" label="Radio" checked disabled />
-        
+        <hr />
       </section>
     </div>
   );

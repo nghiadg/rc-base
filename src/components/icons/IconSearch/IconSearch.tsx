@@ -11,10 +11,10 @@ export const IconSearch = ({ width = 24, height = 24, stroke = '#605f5f', size }
     >
       <g
         fill="none"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         stroke={stroke}
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       >
         <circle cx="8.5" cy="8.5" r="5" />
         <path d="M17.571 17.5L12 12" />
