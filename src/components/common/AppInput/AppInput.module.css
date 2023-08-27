@@ -26,3 +26,15 @@
     color: var(--red);
     font-size: 14px;
 }
+
+.widthXs {
+    width: 100px;
+}
+
+.widthSm {
+    width: 200px;
+}
+
+.widthLg {
+    width: 350px;
+}

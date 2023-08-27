@@ -8,7 +8,6 @@ export const IconSpinner = ({ width = 24, height = 24, size }: IIconProps) => {
       width={size ?? width}
       height={size ?? height}
       viewBox="0 0 24 24"
-      
     >
       <g fill="none" stroke="#84c0ca" strokeLinecap="round" strokeWidth="2">
         <path
@@ -19,7 +18,7 @@ export const IconSpinner = ({ width = 24, height = 24, size }: IIconProps) => {
         >
           <animate
             fill="freeze"
-            attributeName="strokeDashoffset"
+            attributeName="stroke-dashoffset"
             dur="1.3s"
             values="60;0"
           />

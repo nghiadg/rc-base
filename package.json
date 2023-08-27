@@ -1,5 +1,5 @@
 {
-  "name": "vms-fe",
+  "name": "rc-base",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,6 +11,8 @@
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "ag-grid-community": "^30.1.0",
+    "ag-grid-react": "^30.1.0",
     "bootstrap": "^5.3.1",
     "clsx": "^2.0.0",
     "dayjs": "^1.11.9",

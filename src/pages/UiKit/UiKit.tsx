@@ -4,6 +4,7 @@ import {
   AppButtonIcon,
   AppCalendar,
   AppDatePicker,
+  AppGrid,
   AppInput,
   AppInputSearch,
   AppInputTime,
@@ -11,8 +12,22 @@ import {
   IconWrapper,
 } from "../../components/common";
 import { IconChecked, IconSpinner } from "../../components/icons";
+import { useMemo } from "react";
+import { ColDef } from "ag-grid-community";
 
 export const UiKit = () => {
+  const columnDefs = useMemo(
+    (): ColDef[] => [
+      {
+        headerName: "名前",
+      },
+      {
+        headerName: "歳",
+      },
+    ],
+    []
+  );
+
   return (
     <div className="p-3">
       <h1>UI kit</h1>
@@ -25,7 +40,7 @@ export const UiKit = () => {
         <AppDatePicker minMaxYear={[null, 2024]} hasCalendar={false} />
         <hr />
         <h3>App Input Time</h3>
-        <AppInputTime />
+        <AppInputTime width="xs" />
         <hr />
         <h3>Button</h3>
         <AppButton>Button Default</AppButton>
@@ -101,6 +116,13 @@ export const UiKit = () => {
         <Form.Check type="radio" label="Radio" disabled />
         <Form.Check type="radio" label="Radio" checked disabled />
         <hr />
+        <h3>App Grid</h3>
+        <div style={{ height: 200 }}>
+          <AppGrid
+            columnDefs={columnDefs}
+            selectedFirstRowOnFirstDataRendered
+          />
+        </div>
       </section>
     </div>
   );
