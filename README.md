@@ -1,3 +1,3 @@
-# VMS
+# RC-BASE
 ## Start project
 ```yarn dev```
