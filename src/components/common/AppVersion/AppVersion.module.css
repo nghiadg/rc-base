@@ -1,0 +1,6 @@
+.version {
+    background-color: var(--border-color);
+    padding: 0 8px;
+    font-size: 12px;
+    border-top-left-radius: 2px;
+}

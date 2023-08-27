@@ -8,3 +8,4 @@ export * from "./AppDatePicker";
 export * from "./AppCalendar";
 export * from "./AppInputTime";
 export * from "./AppGrid";
+export * from './AppVersion'

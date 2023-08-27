@@ -3,6 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Main } from "./Main";
 import reportWebVitals from "./reportWebVitals";
+import { AppVersion } from "./components/common";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -10,6 +11,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Main />
+    <AppVersion version="8/27/2023, 12:08:51 PM"/>
   </React.StrictMode>
 );
 
