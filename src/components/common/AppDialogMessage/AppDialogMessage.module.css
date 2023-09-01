@@ -1,0 +1,8 @@
+.footer {
+  padding: 6px;
+  gap: 6px;
+}
+
+.footer > button {
+  min-width: 75px;
+}

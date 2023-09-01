@@ -4,6 +4,7 @@ import {
   AppButtonIcon,
   AppCalendar,
   AppDatePicker,
+  AppDialogMessage,
   AppGrid,
   AppInput,
   AppInputSearch,
@@ -12,8 +13,12 @@ import {
   IconWrapper,
 } from "../../components/common";
 import { IconChecked, IconSpinner } from "../../components/icons";
-import { useMemo } from "react";
+import { useMemo, useCallback } from "react";
 import { ColDef } from "ag-grid-community";
+import {
+  DialogMessageButton,
+  DialogMessage,
+} from "../../components/common/AppDialogMessage/AppDialogMessage.const";
 
 export const UiKit = () => {
   const columnDefs = useMemo(
@@ -27,6 +32,42 @@ export const UiKit = () => {
     ],
     []
   );
+
+  const showDialogMessageInfo = useCallback(async () => {
+    const res = await new AppDialogMessage(
+      new DialogMessage(DialogMessage.Info, "Dialog message {0}"),
+      "Info",
+      [DialogMessageButton.mbNo, DialogMessageButton.mbClose]
+    );
+    console.log(res);
+  }, []);
+
+  const showDialogMessageWarning = useCallback(async () => {
+    const res = await new AppDialogMessage(
+      new DialogMessage(DialogMessage.Warning, "Dialog message {0}"),
+      "Warning",
+      [DialogMessageButton.mbNo, DialogMessageButton.mbClose]
+    );
+    console.log(res);
+  }, []);
+
+  const showDialogMessageError = useCallback(async () => {
+    const res = await new AppDialogMessage(
+      new DialogMessage(DialogMessage.Error, "Dialog message {0}"),
+      "Error",
+      [DialogMessageButton.mbNo, DialogMessageButton.mbClose]
+    );
+    console.log(res);
+  }, []);
+
+  const showDialogMessageNone = useCallback(async () => {
+    const res = await new AppDialogMessage(
+      new DialogMessage(DialogMessage.None, "Dialog message {0}"),
+      "None",
+      [DialogMessageButton.mbNo, DialogMessageButton.mbClose]
+    );
+    console.log(res);
+  }, []);
 
   return (
     <div className="p-3">
@@ -124,6 +165,18 @@ export const UiKit = () => {
           />
         </div>
       </section>
+      <hr />
+      <h3>AppDialogMessage</h3>
+      <div className="d-flex gap-2">
+        <AppButton onClick={showDialogMessageNone}>Open Dialog None</AppButton>
+        <AppButton onClick={showDialogMessageInfo}>Open Dialog Info</AppButton>
+        <AppButton onClick={showDialogMessageWarning}>
+          Open Dialog Warning
+        </AppButton>
+        <AppButton onClick={showDialogMessageError}>
+          Open Dialog Error
+        </AppButton>
+      </div>
     </div>
   );
 };
