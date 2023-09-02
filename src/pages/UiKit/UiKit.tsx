@@ -9,6 +9,7 @@ import {
   AppDialogMessage,
   AppGrid,
   AppInput,
+  AppInputNumber,
   AppInputSearch,
   AppInputTime,
   AppModal,
@@ -18,8 +19,8 @@ import {
 import {
   DialogMessage,
   DialogMessageButton,
-} from "../../components/common/AppDialogMessage/AppDialogMessage.const";
-import { IAppModalProps } from "../../components/common/AppModal/AppModal.types";
+} from "../../components/common/AppDialogMessage";
+import { IAppModalProps } from "../../components/common/AppModal";
 import { IconChecked, IconSpinner } from "../../components/icons";
 
 interface ModalExampleProps<TData> extends IAppModalProps<TData> {
@@ -55,14 +56,14 @@ export const UiKit = () => {
         headerName: "歳",
       },
     ],
-    [],
+    []
   );
 
   const showDialogMessageInfo = useCallback(async () => {
     const res = await new AppDialogMessage(
       new DialogMessage(DialogMessage.Info, "Dialog message {0}"),
       "Info",
-      [DialogMessageButton.mbNo, DialogMessageButton.mbClose],
+      [DialogMessageButton.mbNo, DialogMessageButton.mbClose]
     );
     console.log(res);
   }, []);
@@ -71,7 +72,7 @@ export const UiKit = () => {
     const res = await new AppDialogMessage(
       new DialogMessage(DialogMessage.Warning, "Dialog message {0}"),
       "Warning",
-      [DialogMessageButton.mbNo, DialogMessageButton.mbClose],
+      [DialogMessageButton.mbNo, DialogMessageButton.mbClose]
     );
     console.log(res);
   }, []);
@@ -80,7 +81,7 @@ export const UiKit = () => {
     const res = await new AppDialogMessage(
       new DialogMessage(DialogMessage.Error, "Dialog message {0}"),
       "Error",
-      [DialogMessageButton.mbNo, DialogMessageButton.mbClose],
+      [DialogMessageButton.mbNo, DialogMessageButton.mbClose]
     );
     console.log(res);
   }, []);
@@ -89,7 +90,7 @@ export const UiKit = () => {
     const res = await new AppDialogMessage(
       new DialogMessage(DialogMessage.None, "Dialog message {0}"),
       "None",
-      [DialogMessageButton.mbNo, DialogMessageButton.mbClose],
+      [DialogMessageButton.mbNo, DialogMessageButton.mbClose]
     );
     console.log(res);
   }, []);
@@ -118,6 +119,13 @@ export const UiKit = () => {
         <hr />
         <h3>App Input Time</h3>
         <AppInputTime width="xs" />
+        <hr />
+        <h3>App Input Number</h3>
+        <AppInputNumber />
+        <h3>App Input Number Error</h3>
+        <AppInputNumber error errorMessage="Input number error" />
+        <h3>App Input Number thousandSeparator</h3>
+        <AppInputNumber thousandSeparator="," width="sm" />
         <hr />
         <h3>Button</h3>
         <AppButton>Button Default</AppButton>
