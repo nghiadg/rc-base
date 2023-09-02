@@ -1,1 +1,1 @@
-export * from "./AppButtonIcon"
+export * from "./AppButtonIcon";

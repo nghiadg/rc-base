@@ -2,7 +2,6 @@ import React, { useMemo } from "react";
 import { useDialogMessageState } from "./AppDialogMessage.core";
 import { Modal } from "react-bootstrap";
 import { AppButton } from "../AppButton";
-import styles from "./AppDialogMessage.module.css";
 import { IAppDialogMessageProps } from "./AppDialogMessage.types";
 import { nanoid } from "nanoid";
 import { DialogMessageType } from "./AppDialogMessage.const";
@@ -14,7 +13,7 @@ export const AppDialogMessageQueue = () => {
 
   const dialogs = useMemo(
     () => dialogMessages.sort((prev, next) => prev.time - next.time),
-    [dialogMessages]
+    [dialogMessages],
   );
 
   return (
@@ -66,13 +65,13 @@ const AppDialogMessage = ({
       <Modal.Body>
         <div className="d-flex gap-2">
           {type !== DialogMessageType.None && (
-            <IconWrapper as={dialogIcon} iconSize={40} />
+            <IconWrapper as={dialogIcon} size="xl" iconSize={40} />
           )}
           {children}
         </div>
       </Modal.Body>
       {footerButtons && footerButtons.length > 0 ? (
-        <Modal.Footer className={styles.footer}>
+        <Modal.Footer>
           {footerButtons.map((button) => (
             <AppButton key={nanoid()} onClick={button.onClick}>
               {button.type}

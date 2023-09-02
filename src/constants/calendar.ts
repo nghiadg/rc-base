@@ -1,3 +1,3 @@
 export enum Calendar {
-    Locale = 'vi'
+  Locale = "vi",
 }

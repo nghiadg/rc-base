@@ -1,1 +1,1 @@
-export * from "./IconWrapper"
+export * from "./IconWrapper";

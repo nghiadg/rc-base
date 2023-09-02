@@ -1,1 +1,1 @@
-export * from "./IconCalendar"
+export * from "./IconCalendar";

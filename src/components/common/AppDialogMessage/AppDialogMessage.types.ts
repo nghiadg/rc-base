@@ -40,6 +40,6 @@ export interface IFooterButtonDialogMessage {
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-export interface IResult<TButton> {
-  resultButton: TButton;
+export interface IDialogMessageResult<TButton> {
+  button: TButton;
 }

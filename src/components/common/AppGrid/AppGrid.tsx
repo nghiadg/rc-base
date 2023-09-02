@@ -19,7 +19,7 @@ export const AppGridBase = <TData,>(
     onFirstDataRendered,
     ...props
   }: IAppGridProps,
-  ref: Ref<TAppGrid<TData>>
+  ref: Ref<TAppGrid<TData>>,
 ) => {
   const gridRef = useRef<AgGridReact<TData> | null>(null);
 
@@ -30,7 +30,7 @@ export const AppGridBase = <TData,>(
       }
       onFirstDataRendered?.(params);
     },
-    [onFirstDataRendered, selectedFirstRowOnFirstDataRendered]
+    [onFirstDataRendered, selectedFirstRowOnFirstDataRendered],
   );
 
   // Utils
@@ -92,8 +92,8 @@ export const AppGridBase = <TData,>(
         getFirstSelectedRow,
         setLoading,
       },
-      gridRef.current
-    )
+      gridRef.current,
+    ),
   );
 
   return (

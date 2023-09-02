@@ -1,8 +1,8 @@
 .menu > ul {
-    padding-left: 0;
+  padding-left: 0;
 }
 
 .calendar {
-    width: 280px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  width: 280px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }

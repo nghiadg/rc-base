@@ -1,4 +1,6 @@
-import { Form } from "react-bootstrap";
+import { ColDef } from "ag-grid-community";
+import { useCallback, useMemo } from "react";
+import { Form, Modal } from "react-bootstrap";
 import {
   AppButton,
   AppButtonIcon,
@@ -9,16 +11,39 @@ import {
   AppInput,
   AppInputSearch,
   AppInputTime,
+  AppModal,
   AppSelect,
   IconWrapper,
 } from "../../components/common";
-import { IconChecked, IconSpinner } from "../../components/icons";
-import { useMemo, useCallback } from "react";
-import { ColDef } from "ag-grid-community";
 import {
-  DialogMessageButton,
   DialogMessage,
+  DialogMessageButton,
 } from "../../components/common/AppDialogMessage/AppDialogMessage.const";
+import { IAppModalProps } from "../../components/common/AppModal/AppModal.types";
+import { IconChecked, IconSpinner } from "../../components/icons";
+
+interface ModalExampleProps<TData> extends IAppModalProps<TData> {
+  customProp: string;
+}
+
+const ModalExample = (props: ModalExampleProps<string>) => (
+  <Modal backdrop="static" centered show>
+    <Modal.Header>App Modal</Modal.Header>
+    <Modal.Body>Hello world</Modal.Body>
+    <Modal.Footer>
+      <AppButton
+        onClick={() =>
+          props.onClose?.({
+            button: "close",
+            data: "data",
+          })
+        }
+      >
+        Close
+      </AppButton>
+    </Modal.Footer>
+  </Modal>
+);
 
 export const UiKit = () => {
   const columnDefs = useMemo(
@@ -30,14 +55,14 @@ export const UiKit = () => {
         headerName: "歳",
       },
     ],
-    []
+    [],
   );
 
   const showDialogMessageInfo = useCallback(async () => {
     const res = await new AppDialogMessage(
       new DialogMessage(DialogMessage.Info, "Dialog message {0}"),
       "Info",
-      [DialogMessageButton.mbNo, DialogMessageButton.mbClose]
+      [DialogMessageButton.mbNo, DialogMessageButton.mbClose],
     );
     console.log(res);
   }, []);
@@ -46,7 +71,7 @@ export const UiKit = () => {
     const res = await new AppDialogMessage(
       new DialogMessage(DialogMessage.Warning, "Dialog message {0}"),
       "Warning",
-      [DialogMessageButton.mbNo, DialogMessageButton.mbClose]
+      [DialogMessageButton.mbNo, DialogMessageButton.mbClose],
     );
     console.log(res);
   }, []);
@@ -55,7 +80,7 @@ export const UiKit = () => {
     const res = await new AppDialogMessage(
       new DialogMessage(DialogMessage.Error, "Dialog message {0}"),
       "Error",
-      [DialogMessageButton.mbNo, DialogMessageButton.mbClose]
+      [DialogMessageButton.mbNo, DialogMessageButton.mbClose],
     );
     console.log(res);
   }, []);
@@ -64,8 +89,19 @@ export const UiKit = () => {
     const res = await new AppDialogMessage(
       new DialogMessage(DialogMessage.None, "Dialog message {0}"),
       "None",
-      [DialogMessageButton.mbNo, DialogMessageButton.mbClose]
+      [DialogMessageButton.mbNo, DialogMessageButton.mbClose],
     );
+    console.log(res);
+  }, []);
+
+  const openAppModal = useCallback(async () => {
+    const res = await new AppModal({
+      children: ModalExample,
+      props: {
+        customProp: "custom",
+      },
+    });
+
     console.log(res);
   }, []);
 
@@ -177,6 +213,8 @@ export const UiKit = () => {
           Open Dialog Error
         </AppButton>
       </div>
+      <h3>App Modal</h3>
+      <AppButton onClick={openAppModal}>Open Modal</AppButton>
     </div>
   );
 };

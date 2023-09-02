@@ -1,1 +1,1 @@
-export * from "./AppInputSearch"
+export * from "./AppInputSearch";

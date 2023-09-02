@@ -14,7 +14,7 @@ export const AppInput = forwardRef<HTMLInputElement, IAppInputProps>(
       width = "full",
       ...props
     },
-    ref
+    ref,
   ) => {
     return (
       <>
@@ -34,5 +34,5 @@ export const AppInput = forwardRef<HTMLInputElement, IAppInputProps>(
         ) : null}
       </>
     );
-  }
+  },
 );

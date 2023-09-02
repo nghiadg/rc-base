@@ -8,5 +8,5 @@ export interface IAppInputTime extends IAppInputProps {
   minMaxMinute?: [number | null, number | null];
   minMaxSecond?: [number | null, number | null];
   minMaxMillisecond?: [number | null, number | null];
-  value?: string
+  value?: string;
 }
