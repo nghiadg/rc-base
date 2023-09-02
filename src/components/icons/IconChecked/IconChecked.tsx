@@ -1,7 +1,12 @@
 import React from "react";
 import { IIconProps } from "../Icon.types";
 
-export const IconChecked = ({ width = 24, height = 24, stroke = '#605f5f', size }: IIconProps) => {
+export const IconChecked = ({
+  width = 24,
+  height = 24,
+  stroke = "#605f5f",
+  size,
+}: IIconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

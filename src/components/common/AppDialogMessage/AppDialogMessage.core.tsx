@@ -8,7 +8,7 @@ import {
   AppDialogMessageAction,
   IAppDialogMessage,
   IAppDialogMessageProps,
-  IResult,
+  IDialogMessageResult,
 } from "./AppDialogMessage.types";
 import { useSyncExternalStore } from "react";
 import { nanoid } from "nanoid";
@@ -26,7 +26,7 @@ export class AppDialogMessageStore {
       }
       case DialogMessageActionType.Dismiss: {
         this.dialogs = this.dialogs.filter(
-          (dialog) => dialog.id !== action.payload
+          (dialog) => dialog.id !== action.payload,
         );
         break;
       }
@@ -88,7 +88,7 @@ const dialogStore = new AppDialogMessageStore();
 export const useDialogMessageState = () =>
   useSyncExternalStore(
     dialogStore.subscribe.bind(dialogStore),
-    dialogStore.getSnapshot.bind(dialogStore)
+    dialogStore.getSnapshot.bind(dialogStore),
   );
 
 export class AppDialogMessage {
@@ -97,8 +97,8 @@ export class AppDialogMessage {
   private _buttons: DialogMessageButton[];
   private _id: string;
   private _modalProps: Partial<ModalProps>;
-  public result: IResult<DialogMessageButton> = {
-    resultButton: DialogMessageButton.mbClose,
+  public result: IDialogMessageResult<DialogMessageButton> = {
+    button: DialogMessageButton.mbClose,
   };
 
   constructor(
@@ -106,7 +106,7 @@ export class AppDialogMessage {
     params: string | string[],
     buttons: DialogMessageButton | DialogMessageButton[],
     title: string = "",
-    modalProps: Partial<ModalProps> = {}
+    modalProps: Partial<ModalProps> = {},
   ) {
     this._id = nanoid();
     this._title = title;
@@ -114,8 +114,8 @@ export class AppDialogMessage {
       message._type,
       StringUtils.format(
         message._message,
-        ...(Array.isArray(params) ? params : [params])
-      )
+        ...(Array.isArray(params) ? params : [params]),
+      ),
     );
 
     this._buttons = Array.isArray(buttons) ? buttons : [buttons];
@@ -133,33 +133,35 @@ export class AppDialogMessage {
 
   async show() {
     if (dialogStore.isDuplicate(this._id)) return this;
-    this.result = await new Promise<IResult<DialogMessageButton>>((resolve) => {
-      dialogStore.show(
-        {
-          children: (
-            <>
-              <span>{this._dialogMessage._message}</span>
-            </>
-          ),
-          onHide() {
-            dialogStore.hide(this._id);
-          },
-          title: this._title,
-          footerButtons: this._buttons.map((button) => ({
-            type: button,
-            onClick: (e) => {
-              resolve({
-                resultButton: button,
-              });
+    this.result = await new Promise<IDialogMessageResult<DialogMessageButton>>(
+      (resolve) => {
+        dialogStore.show(
+          {
+            children: (
+              <>
+                <span>{this._dialogMessage._message}</span>
+              </>
+            ),
+            onHide() {
               dialogStore.hide(this._id);
             },
-          })),
-          type: this._dialogMessage._type,
-          ...this._modalProps,
-        },
-        this._id
-      );
-    });
+            title: this._title,
+            footerButtons: this._buttons.map((button) => ({
+              type: button,
+              onClick: (e) => {
+                resolve({
+                  button,
+                });
+                dialogStore.hide(this._id);
+              },
+            })),
+            type: this._dialogMessage._type,
+            ...this._modalProps,
+          },
+          this._id,
+        );
+      },
+    );
 
     return this;
   }

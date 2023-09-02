@@ -1,2 +1,2 @@
-export * from './AppInputTime'
-export * from './AppInputTime.types'
+export * from "./AppInputTime";
+export * from "./AppInputTime.types";

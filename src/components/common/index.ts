@@ -10,3 +10,4 @@ export * from "./AppInputTime";
 export * from "./AppGrid";
 export * from "./AppVersion";
 export * from "./AppDialogMessage";
+export * from "./AppModal";

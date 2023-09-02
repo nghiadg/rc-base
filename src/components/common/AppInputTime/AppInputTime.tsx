@@ -29,7 +29,7 @@ export const AppInputTime = forwardRef<HTMLInputElement, IAppInputTime>(
       value,
       ...props
     },
-    ref
+    ref,
   ) => {
     const inputRef = useRef<HTMLInputElement | null>(null);
     const _value = useMemo(() => {
@@ -50,7 +50,7 @@ export const AppInputTime = forwardRef<HTMLInputElement, IAppInputTime>(
         }
         return isValid;
       },
-      [minMaxSecond]
+      [minMaxSecond],
     );
 
     const isValidMinute = useCallback(
@@ -65,7 +65,7 @@ export const AppInputTime = forwardRef<HTMLInputElement, IAppInputTime>(
         }
         return isValid;
       },
-      [minMaxSecond]
+      [minMaxSecond],
     );
 
     const isValidSecond = useCallback(
@@ -80,7 +80,7 @@ export const AppInputTime = forwardRef<HTMLInputElement, IAppInputTime>(
         }
         return isValid;
       },
-      [minMaxSecond]
+      [minMaxSecond],
     );
 
     const isValidMillisecond = useCallback(
@@ -95,7 +95,7 @@ export const AppInputTime = forwardRef<HTMLInputElement, IAppInputTime>(
         }
         return isValid;
       },
-      [minMaxMillisecond]
+      [minMaxMillisecond],
     );
 
     const _onChangeTime = useCallback(
@@ -135,7 +135,7 @@ export const AppInputTime = forwardRef<HTMLInputElement, IAppInputTime>(
         isValidMinute,
         isValidSecond,
         onChangeTime,
-      ]
+      ],
     );
 
     const _onKeyDown = useCallback(
@@ -145,7 +145,7 @@ export const AppInputTime = forwardRef<HTMLInputElement, IAppInputTime>(
         }
         onKeyDown?.(e);
       },
-      [_onChangeTime, onKeyDown]
+      [_onChangeTime, onKeyDown],
     );
 
     useImperativeHandle(ref, () => Object.assign(inputRef));
@@ -158,5 +158,5 @@ export const AppInputTime = forwardRef<HTMLInputElement, IAppInputTime>(
         {...props}
       />
     );
-  }
+  },
 );

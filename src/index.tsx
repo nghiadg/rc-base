@@ -4,17 +4,19 @@ import ReactDOM from "react-dom/client";
 import { Main } from "./Main";
 import reportWebVitals from "./reportWebVitals";
 import { AppDialogMessageQueue, AppVersion } from "./components/common";
+import { AppModalQueue } from "./components/common/AppModal";
 
 const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
+  document.getElementById("root") as HTMLElement,
 );
 
 root.render(
   <React.StrictMode>
     <Main />
     <AppDialogMessageQueue />
+    <AppModalQueue />
     <AppVersion version="8/27/2023, 12:08:51 PM" />
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,2 +1,2 @@
-export * from "./AppInput"
-export * from './AppInput.types'
+export * from "./AppInput";
+export * from "./AppInput.types";

@@ -24,7 +24,7 @@ export const AppButtonIcon = ({
       onMouseEnter?.(e);
       setIsHover(true);
     },
-    [onMouseEnter]
+    [onMouseEnter],
   );
 
   const _onMouseLeave = useCallback(
@@ -32,7 +32,7 @@ export const AppButtonIcon = ({
       onMouseLeave?.(e);
       setIsHover(false);
     },
-    [onMouseLeave]
+    [onMouseLeave],
   );
 
   return (

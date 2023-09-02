@@ -1,1 +1,1 @@
-export * from "./AppCalendar"
+export * from "./AppCalendar";

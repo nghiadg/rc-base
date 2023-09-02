@@ -32,7 +32,7 @@ export const AppSelect = ({
         ...(!error && { borderColor: "var(--primary)" }),
       },
     }),
-    [error]
+    [error],
   );
 
   const valueContainerStyles = useCallback(
@@ -42,7 +42,7 @@ export const AppSelect = ({
       padding: "0 6px",
       fontSize: 14,
     }),
-    []
+    [],
   );
 
   const menuStyles = useCallback(
@@ -53,7 +53,7 @@ export const AppSelect = ({
       boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px;",
       border: "1px solid var(--secondary-hover)",
     }),
-    []
+    [],
   );
 
   const optionStyles = useCallback(
@@ -72,7 +72,7 @@ export const AppSelect = ({
           : "var(--primary-light)",
       },
     }),
-    []
+    [],
   );
 
   return (
