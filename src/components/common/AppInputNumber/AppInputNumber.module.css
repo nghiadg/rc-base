@@ -1,0 +1,40 @@
+.input {
+  outline: none;
+  box-shadow: none;
+}
+
+.input:hover {
+  outline: none;
+  box-shadow: none;
+}
+
+.input:global(.form-control):focus {
+  box-shadow: none;
+  border-color: var(--primary);
+  color: var(--text-color);
+}
+
+.error {
+  border-color: var(--red);
+}
+
+.error:global(.form-control):focus {
+  border-color: var(--red);
+}
+
+.errorMsg {
+  color: var(--red);
+  font-size: 14px;
+}
+
+.widthXs {
+  width: 100px;
+}
+
+.widthSm {
+  width: 200px;
+}
+
+.widthLg {
+  width: 350px;
+}

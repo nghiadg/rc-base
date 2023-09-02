@@ -11,3 +11,4 @@ export * from "./AppGrid";
 export * from "./AppVersion";
 export * from "./AppDialogMessage";
 export * from "./AppModal";
+export * from "./AppInputNumber";
