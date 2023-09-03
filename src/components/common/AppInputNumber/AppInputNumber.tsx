@@ -3,23 +3,22 @@ import { forwardRef } from "react";
 import { NumericFormat } from "react-number-format";
 import styles from "./AppInputNumber.module.css";
 import { IAppInputNumber } from "./AppInputNumber.types";
+import { FormControl } from "react-bootstrap";
 
 export const AppInputNumber = forwardRef<HTMLInputElement, IAppInputNumber>(
-  ({ error, errorMessage, width, ...props }, ref) => {
+  ({ error, errorMessage, width, className, ...props }, ref) => {
     return (
       <>
-        <NumericFormat
+        <FormControl
           getInputRef={ref}
-          className={clsx(
-            "rounded-0 form-control form-control-sm",
-            styles.input,
-            {
-              [styles.error]: error,
-              [styles.widthXs]: width === "xs",
-              [styles.widthSm]: width === "sm",
-              [styles.widthLg]: width === "lg",
-            },
-          )}
+          size="sm"
+          as={NumericFormat}
+          className={clsx("rounded-0", styles.input, className, {
+            [styles.error]: error,
+            [styles.widthXs]: width === "xs",
+            [styles.widthSm]: width === "sm",
+            [styles.widthLg]: width === "lg",
+          })}
           {...props}
         />
         {error && errorMessage ? (
@@ -27,5 +26,5 @@ export const AppInputNumber = forwardRef<HTMLInputElement, IAppInputNumber>(
         ) : null}
       </>
     );
-  },
+  }
 );
