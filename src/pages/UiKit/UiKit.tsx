@@ -56,14 +56,14 @@ export const UiKit = () => {
         headerName: "歳",
       },
     ],
-    []
+    [],
   );
 
   const showDialogMessageInfo = useCallback(async () => {
     const res = await new AppDialogMessage(
       new DialogMessage(DialogMessage.Info, "Dialog message {0}"),
       "Info",
-      [DialogMessageButton.mbNo, DialogMessageButton.mbClose]
+      [DialogMessageButton.mbNo, DialogMessageButton.mbClose],
     );
     console.log(res);
   }, []);
@@ -72,7 +72,7 @@ export const UiKit = () => {
     const res = await new AppDialogMessage(
       new DialogMessage(DialogMessage.Warning, "Dialog message {0}"),
       "Warning",
-      [DialogMessageButton.mbNo, DialogMessageButton.mbClose]
+      [DialogMessageButton.mbNo, DialogMessageButton.mbClose],
     );
     console.log(res);
   }, []);
@@ -81,7 +81,7 @@ export const UiKit = () => {
     const res = await new AppDialogMessage(
       new DialogMessage(DialogMessage.Error, "Dialog message {0}"),
       "Error",
-      [DialogMessageButton.mbNo, DialogMessageButton.mbClose]
+      [DialogMessageButton.mbNo, DialogMessageButton.mbClose],
     );
     console.log(res);
   }, []);
@@ -90,7 +90,7 @@ export const UiKit = () => {
     const res = await new AppDialogMessage(
       new DialogMessage(DialogMessage.None, "Dialog message {0}"),
       "None",
-      [DialogMessageButton.mbNo, DialogMessageButton.mbClose]
+      [DialogMessageButton.mbNo, DialogMessageButton.mbClose],
     );
     console.log(res);
   }, []);

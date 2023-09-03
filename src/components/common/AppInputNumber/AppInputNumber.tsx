@@ -26,5 +26,5 @@ export const AppInputNumber = forwardRef<HTMLInputElement, IAppInputNumber>(
         ) : null}
       </>
     );
-  }
+  },
 );
