@@ -5,9 +5,10 @@ import reportWebVitals from "./reportWebVitals";
 import { AppDialogMessageQueue, AppVersion } from "./components/common";
 import { AppModalQueue } from "./components/common/AppModal";
 import { RouterManager } from "./routers";
+import "./axios.config";
 
 const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
+  document.getElementById("root") as HTMLElement,
 );
 
 root.render(
@@ -16,7 +17,7 @@ root.render(
     <AppDialogMessageQueue />
     <AppModalQueue />
     <AppVersion version="9/3/2023, 2:23:26 PM" />
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 
 // If you want to start measuring performance in your app, pass a function
